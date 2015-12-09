@@ -58,8 +58,8 @@ patterns:
 - match: \b(?i:(when))\s.+(?i:(then))\b
   name: text.control.kos
   captures:
-    '1': { name: keyword.source.kos }
-    '2': { name: keyword.source.kos }
+    '1': { name: keyword.control.kos }
+    '2': { name: keyword.source.kos  }
 
 - match: \b(?i:add|remove|break|clearscreen|delete|declare( parameter)?|edit|print|remove|run|stage|switch to|toggle|unlock|warp|reboot|shutdown|list|reboot)\b
   name: keyword.source.kos
@@ -79,6 +79,7 @@ patterns:
 
 - match: \b\d+\b
   name: constant.numeric.kos
+  comment: Raw numbers
 
 - begin: \"
   end: \"

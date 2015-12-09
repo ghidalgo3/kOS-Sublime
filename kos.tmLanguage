@@ -145,7 +145,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.source.kos</string>
+					<string>keyword.control.kos</string>
 				</dict>
 				<key>2</key>
 				<dict>
@@ -189,6 +189,8 @@
 			<string>support.function.source.kos</string>
 		</dict>
 		<dict>
+			<key>comment</key>
+			<string>Raw numbers</string>
 			<key>match</key>
 			<string>\b\d+\b</string>
 			<key>name</key>
