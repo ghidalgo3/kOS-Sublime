@@ -14,8 +14,9 @@ uuid: a73c33ac-e3fa-45c6-ba20-040413ac4dc4
 patterns:
 - match: //.*
   name: comment.line.source.kos
+  comment: Comments
 
-- match: (?i:add|print|remove|break|clearscreen|copy|delete|declare|edit|list|lock|on|log|rename|remove|run|set|stage|switch|toggle|unlock|reboot|shutdown)\s+[^\.]+$
+- match: (?i:add|print|remove|break|clearscreen|copy|delete|declare|edit|list|lock|log|rename|remove|run|set|stage|switch|toggle|unlock|reboot|shutdown)\s+[^\.]+$
   name: invalid.illegal.source.kos
 
 - match: \b(?i:heading|bearing|direction)\b
@@ -55,7 +56,10 @@ patterns:
       '2': { name: keyword.source.kos }
 
 - match: \b(?i:(when))\s.+(?i:(then))\b
-  name: text.source.kos
+  name: text.control.kos
+  captures:
+    '1': { name: keyword.source.kos }
+    '2': { name: keyword.source.kos }
 
 - match: \b(?i:add|remove|break|clearscreen|delete|declare( parameter)?|edit|print|remove|run|stage|switch to|toggle|unlock|warp|reboot|shutdown|list|reboot)\b
   name: keyword.source.kos
@@ -72,6 +76,9 @@ patterns:
 
 - match: \b(?i:abs|mod|floor|ceiling|round|round|sqrt|sin|cos|tan|arcsin|arccos|arctan|arctan2)\b
   name: support.function.source.kos
+
+- match: \b\d+\b
+  name: constant.numeric.kos
 
 - begin: \"
   end: \"
