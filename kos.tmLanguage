@@ -4,8 +4,7 @@
 <dict>
 	<key>fileTypes</key>
 	<array>
-		<string>txt</string>
-		<string>kos</string>
+		<string>ks</string>
 	</array>
 	<key>name</key>
 	<string>kOS</string>
@@ -26,19 +25,6 @@
 			<string>invalid.illegal.source.kos</string>
 		</dict>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.source.kos</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.source.kos</string>
-				</dict>
-			</dict>
 			<key>match</key>
 			<string>\b(?i:heading|bearing|direction)\b</string>
 			<key>name</key>
@@ -55,11 +41,16 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
+					<string>support.variable.kos</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
 					<string>keyword.source.kos</string>
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\s*(?i:(set|log|rename))\s.*(?i:(to))\s*</string>
+			<string>\s*(?i:(set|log|rename))\s+(?i:\w+)\s+(?i:(to))\s+</string>
 			<key>name</key>
 			<string>text.source.kos</string>
 		</dict>
@@ -184,7 +175,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(?i:abs|mod|floor|ceiling|round|round|sqrt|sin|cos|tan|arcsin|arccos|arctan|arctan2)\b</string>
+			<string>\b(?i:min|max|abs|mod|floor|ceiling|round|round|sqrt|sin|cos|tan|arcsin|arccos|arctan|arctan2)\b</string>
 			<key>name</key>
 			<string>support.function.source.kos</string>
 		</dict>
@@ -192,9 +183,17 @@
 			<key>comment</key>
 			<string>Raw numbers</string>
 			<key>match</key>
-			<string>\b\d+\b</string>
+			<string>\b(\d+(\\.\d+)?)\b</string>
 			<key>name</key>
 			<string>constant.numeric.kos</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Arithmetic operators</string>
+			<key>match</key>
+			<string>(\+|-|\*|\/|&lt;|&gt;)</string>
+			<key>name</key>
+			<string>keyword.operator.kos</string>
 		</dict>
 		<dict>
 			<key>begin</key>

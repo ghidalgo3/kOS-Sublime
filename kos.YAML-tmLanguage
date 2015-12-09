@@ -8,7 +8,7 @@
 ---
 name: kOS
 scopeName: source.kos
-fileTypes: [txt, kos]
+fileTypes: [ks]
 uuid: a73c33ac-e3fa-45c6-ba20-040413ac4dc4
 
 patterns:
@@ -21,15 +21,13 @@ patterns:
 
 - match: \b(?i:heading|bearing|direction)\b
   name: storage.type.source.kos
-  captures:
-    '1': { name: keyword.source.kos }
-    '2': { name: keyword.source.kos }
 
-- match: \s*(?i:(set|log|rename))\s.*(?i:(to))\s*
+- match: \s*(?i:(set|log|rename))\s+(?i:\w+)\s+(?i:(to))\s+
   name: text.source.kos
   captures:
     '1': { name: keyword.source.kos }
-    '2': { name: keyword.source.kos }
+    '2': { name: support.variable.kos }
+    '3': { name: keyword.source.kos }
 
 - match: \s*(?i:(copy))\s.*(?i:(to|from))\s*
   name: text.source.kos
@@ -74,12 +72,16 @@ patterns:
 - match: \b(?i:sas|gear|rcs|lights|brakes|legs|chutes|panels) (on|off)\b
   name: support.function.source.kos
 
-- match: \b(?i:abs|mod|floor|ceiling|round|round|sqrt|sin|cos|tan|arcsin|arccos|arctan|arctan2)\b
+- match: \b(?i:min|max|abs|mod|floor|ceiling|round|round|sqrt|sin|cos|tan|arcsin|arccos|arctan|arctan2)\b
   name: support.function.source.kos
 
-- match: \b\d+\b
+- match: \b(\d+(\\.\d+)?)\b
   name: constant.numeric.kos
   comment: Raw numbers
+
+- match: (\+|-|\*|\/|<|>)
+  name: keyword.operator.kos
+  comment: Arithmetic operators
 
 - begin: \"
   end: \"
